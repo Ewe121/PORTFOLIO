@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .general{
+            padding: 100px;
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+            
+        }
+        .first{
+            
+        }
+        .second{
+    
+        }
+        img{
+            width: 600px;
+            height: 600px;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="general">
+        <div class="first">
+            <img src="first.jpeg" alt="" width="" class="hello">
+        </div>
+        <div class="second">
+            <img src="sfirst.jpeg" alt="" width="" class="jim">
+        </div>
+    </div>
+    
+
+
+    <script>
+        let first = document.querySelector('.hello')
+        let second = document.querySelector('.jim')
+
+        let imagearray1 = ["first.jpeg", "second.jpeg", "third.jpeg", "four.jpeg"]
+        let imagearray2 = ["sfirst.jpeg", "ssecond.jpeg", "sthird.jpeg", "sfour.jpep"]
+
+        function generateRandomImage(){
+            const randomIndex = Math.floor(Math.random() * imageUrls.length);
+            const imageUrl = imageUrls[randomIndex];
+
+            const imgElement = document.createElement("img");
+            imgElement.src = imageUrl;
+  
+            imageContainer.appendChild(imgElement);
+            generateButton.addEventListener("click", generateRandomImage);
+        }
+
+    </script>
+</body>
+</html>

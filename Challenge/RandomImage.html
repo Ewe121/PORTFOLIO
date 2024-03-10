@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="image-container">
+        <img src="IMG/img7.jpg" id="first">
+    </div>
+    
+
+    <script>
+        let a = "IMG/img1.jpg"
+        let b = "IMG/img2.jpg"
+        let c = "IMG/img3.jpg"
+        let d = "IMG/img4.jpg"
+        let e = "IMG/img5.jpg"
+
+        const showimage = [a, b, c, d, e]
+
+        const genimg = document.querySelector('#image-container')
+        const hoverfirst = document.querySelector('#first')
+
+     
+
+        function randomyimage(){
+            const randomIndex = Math.floor(Math.random() * showimage.length);
+
+            // Set the src attribute of the image element to the randomly selected image URL
+            hoverfirst.src = showimage[randomIndex];
+        }
+
+        setInterval(randomyimage, 500)
+
+        randomyimage()
+    </script>
+</body>
+</html>

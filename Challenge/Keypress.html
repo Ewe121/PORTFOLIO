@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" class="name">
+
+        <label for="output">Output</label>
+        <input type="text" id="output" class="output">
+    </form>
+
+    <script>
+        // Get the input elements
+        let nameInput = document.querySelector(".name");
+        let outputInput = document.querySelector(".output");
+
+        // Add event listener for keypress event on name input
+        nameInput.addEventListener("keyup", function() {
+            // Update the value of the output input with the value of name input
+            outputInput.value = nameInput.value;
+        });
+    </script>
+
+</body>
+</html>

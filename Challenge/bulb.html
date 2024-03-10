@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        *{
+            padding: 0;
+            margin: 0;
+            outline: 0;
+            box-sizing: border-box;
+            border: none;
+        }
+        
+        .genform{
+            width: 500px;
+            margin: 7vh auto ;
+            height: auto;
+            background-color: antiquewhite;
+            padding: 60px 60px;
+            border-radius: 20px;
+            display: none;
+            
+        }
+        #genform{
+            border-radius: 20px;
+        }
+
+          
+        
+
+        div label{
+            width: 100%;
+            padding: 0 10px;
+            
+
+        }
+
+        input{
+            width: 100%;
+            height: 40px;
+            border-radius: 12px;
+            padding: 0 30px;
+            
+        
+        }
+
+        select{
+            width: 100%;
+            height: 40px;
+            padding: 0 30px;
+            border-radius: 12px;
+            padding-right: 20px;
+        }
+
+        /* select::-ms-expand {
+    display: none; /* Remove the default arrow in Internet Explorer */
+/*} 
+
+        /* div{
+            width: 100%;
+            margin: auto;
+            height: 100vh;
+        } */
+
+        button{
+            width: 100%;
+            height: 40px;
+            background-color:lightseagreen;
+            color: whitesmoke;
+            border-radius: 12px;
+        }
+
+                    /* second form */
+
+        .signin{
+            width: 500px;
+            margin: 30vh auto ;
+            height: px;
+            background-color: antiquewhite;
+            padding: 60px 60px;
+            border-radius: 20px;
+            
+        }
+
+       .genform p a{
+            text-decoration: none;
+             
+        }
+
+        .signin form p a{
+            text-decoration: none;
+        }
+
+        p{
+            margin-top: 16px;
+        }
+        
+        .signin button{
+            width: 100%;
+            height: 40px;
+            background-color:lightseagreen;
+            color: whitesmoke;
+            border-radius: 12px;
+        }
+
+        button{
+            padding: 12px 8px ;
+            background-color: burlywood;
+            outline: snow;
+        }
+    </style>
+</head>
+<body>
+    <div class="genform" id="genform">
+    
+        <form action="">
+            <div>
+                <label for="Name">Name</label>
+                <input type="text" placeholder="Bolarinwa" name="" value="">
+            </div>
+            <br>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" placeholder="@tola222" name="" value="">
+            </div>
+            
+            
+            <br>
+            <div>
+                <label for="Email">Email</label>
+                <input type="text" placeholder="bola@gmail.com" name="" value="">
+            </div>
+            
+            <br>
+            <div>
+                <label for="country">Country</label>
+                <select name="" id="countryDropdown">
+                    <!-- <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option> -->
+                </select>
+            </div>
+            
+            <br>
+            
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="" value="">
+            </div>
+            <br>
+            <div>
+                <button>Submit</button>
+            </div>
+            <p>Already have an account <a href="" class="Login">Login</a></p>
+        </form>
+
+    </div>
+
+    <div class="signin">
+        <form action="">
+            <div>
+                <label for="Email">Email</label>
+                <input type="text" placeholder="bola@gmail.com" name="" value="">
+            </div>
+            <br>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="" value="">
+            </div>
+            <br>
+            
+            <div>
+                <button>Submit</button>
+            </div>
+            <p>Dont have an account <a href="" class="signup">SignUp</a></p>
+        </form>
+    </div>
+
+
+    <script>
+//          let game = document.createElement("section")
+
+//         let shola = document.createElement('div')
+
+//         shola.innerHTML = "<p>hello how are you</p>"
+
+//         game.appendChild(shola)
+
+//         document.body.appendChild(game)
+// console.log(game)
+
+        
+
+        document.addEventListener("DOMContentLoaded", function(){
+
+        
+        let  Login = document.querySelector('.Login')
+        let  signup = document.querySelector('.signup')        
+        
+        let  genform = document.querySelector('.genform')
+        let  signin  = document.querySelector('.signin')
+        
+        Login.addEventListener("click", first)
+
+        function first(e){
+            e.preventDefault()
+            signin.style.display = "block"
+            genform.style.display = "none";
+        }
+
+        signup.addEventListener("click", second)
+
+        function second(e){
+            e.preventDefault();
+            genform.style.display = "block";
+            signin.style.display = "none";
+        }
+
+   })
+
+ 
+
+//   document.addEventListener("DOMContentLoaded", function () {
+    
+//     let genform = document.querySelector('.genform');
+//     let signin = document.querySelector('.signin');
+    
+//     let genLink = genform.querySelector('a');
+//     let signLink = signin.querySelector('a');
+
+//     genLink.addEventListener("click", function (event) {
+//         event.preventDefault();
+//         gen();
+//     });
+
+//     signLink.addEventListener("click", function (event) {
+//         event.preventDefault();
+//         sign();
+//     });
+
+//     function gen() {
+//         signin.style.display = "none";
+//         genform.style.display = "block";
+//     }
+
+//     function sign() {
+//         signin.style.display = "block";
+//         genform.style.display = "none";
+//     }
+// });
+
+    </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the dropdown element
+        let countryDropdown = document.getElementById('countryDropdown');
+
+        // Fetch country data from Restcountries API
+        fetch('https://restcountries.com/v3.1/all')
+            .then(response => response.json())
+            .then(data => {
+                // Populate the dropdown with country names
+                data.forEach(country => {
+                    let option = document.createElement('option');
+                    option.value = country.name.common;
+                    option.text = country.name.common;
+                    countryDropdown.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching country data:', error));
+    });
+
+    // Rest of your JavaScript code for form switching goes here
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Conversion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .unit-label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .unit-label input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .convert-button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .convert-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Temperature Conversion</h3>
+        <input type="number" id="temperature" placeholder="Enter temperature" />
+        <div class="unit-label">
+            <input type="radio" id="celsius" name="unit" value="celsius" checked>
+            <label for="celsius">Celsius</label>
+            <input type="radio" id="fahrenheit" name="unit" value="fahrenheit">
+            <label for="fahrenheit">Fahrenheit</label>
+        </div>
+        <p class="output" id="output"></p>
+        <button class="convert-button" onclick="convertTemperature()">Convert</button>
+    </div>
+
+    <script>
+        function convertTemperature() {
+            let temperature = parseFloat(document.getElementById('temperature').value);
+            let unit = document.querySelector('input[name="unit"]:checked').value;
+
+            let result;
+            let convertedUnit;
+
+            if (unit === "celsius") {
+                result = (temperature * 9/5) + 32;
+                convertedUnit = "Fahrenheit";
+            } else {
+                result = (temperature - 32) * 5/9;
+                convertedUnit = "Celsius";
+            }
+
+            document.getElementById('output').textContent = `Result: ${result.toFixed(2)} ${convertedUnit}`;
+        }
+    </script>
+</body>
+</html>

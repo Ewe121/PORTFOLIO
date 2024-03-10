@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Effect</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .general{
+            padding: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .image-container {
+            /* width: 600px; */
+            /* height: 600px; */
+        }
+        img{
+            width: 60%;
+            height: 100%;
+            object-fit: fill;
+            transition: transform 0.3s ease-in-out;
+        }
+        /* img:hover {
+            transform: scale(1.1);
+        } */
+    </style>
+</head>
+<body>
+    <div class="general">
+        <div class="first image-container">
+            <img src="first.jpeg" alt="First Image">
+        </div>
+        <div class="second image-container">
+            <img src="sfirst.jpeg" alt="Second Image">
+        </div>
+    </div>
+    <script>
+        const first = document.querySelector('.first img');
+        const second = document.querySelector('.second img');
+        const imageArray1 = [ "second.jpeg", "third.jpeg", "four.jpeg"];
+        const imageArray2 = [ "ssecond.jpeg", "sthird.jpeg", "sfour.jpeg",];
+        const imageArray3 = ["first.jpeg"]
+        const imageArray4 = ["sfirst.jpeg"]
+        let currentIndex1 = 0;
+        let currentIndex2 = 0;
+
+        first.addEventListener('mouseover', () => {
+            currentIndex1 = (currentIndex1 + 1) % imageArray1.length;
+            first.src = imageArray1[currentIndex1];
+        });
+
+        second.addEventListener('mouseover', () => {
+            currentIndex2 = (currentIndex2 + 1) % imageArray2.length;
+            second.src = imageArray2[currentIndex2];
+        });
+
+        first.addEventListener('mouseout', () => {
+            first.src = imageArray3[0]; // Reset to the default image
+        });
+
+        second.addEventListener('mouseout', () => {
+            second.src = imageArray4[0]; // Reset to the default image
+        });
+    </script>
+</body>
+</html>
